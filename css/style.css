@@ -1,0 +1,39 @@
+body {
+	background-color: #000;
+}
+* {
+	box-sizing: border-box;
+}
+.board {
+	background: url(../img/board.jpg) no-repeat;
+	position: relative;
+	width: 1024px;
+	height: 863px;
+	margin: auto;
+} 
+table {
+	position: absolute;
+	left: 173px;
+	top: 98px;
+}
+td {
+	width: 94px;
+	height: 94px;
+}
+form {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 15px;
+	background-color: #6E951E;
+}
+form input {
+	background-color: #fff;
+	border-color: #fff;
+}
+.messageArea {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	color: #fff;
+}
