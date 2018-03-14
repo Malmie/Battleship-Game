@@ -29,11 +29,24 @@ form {
 }
 form input {
 	background-color: #fff;
-	border-color: #fff;
+	border: none;
+	padding: 3px;
+
 }
-.messageArea {
+#fireButton {
+	width: 80px;
+	background-color: #000;
+	color: #fff;	
+}
+#messageArea {
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	color: #fff;
+}
+.hit {
+	background: url(../img/ship.png) no-repeat center center;
+}
+.miss {
+	background: url(../img/miss.png) no-repeat center center;
 }
