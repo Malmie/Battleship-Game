@@ -1,36 +1,3 @@
-/*
-var randomLoc = Math.floor(Math.random() * 5);
-var location1 = randomLoc;
-var location2 = location1 + 1;
-var location3 = location2 + 1;
-
-var guess;
-var hits = 0;
-var guesses = 0;
-var isSunk = false;
-
-while (isSunk == false) {
-	guess = prompt("Enter a number from 0 to 6:");
-	if (guess < 0 || guess > 6) {
-		alert("Wrong number");
-	} else {
-		guesses = guesses + 1;
-			if (guess == location1 || guess == location2 || guess == location3) {
-				alert("Hit!")
-				hits = hits + 1;
-				if (hits == 3) {
-					isSunk = true;
-					alert("You sank my battleship");
-				}
-			} else {
-				alert("Miss!")
-			}
-	}
-}
-var stats = "you took " + guesses + " guesses to sink the battleship, " + 
-			"which means your shooting accuracy was " + (3/guesses);
-alert(stats);*/
-
 var view = {
 	displayMessage: function(msg) {
 		var messageArea = document.getElementById("messageArea");
@@ -82,6 +49,7 @@ var model = {
 				return false;
 			}
 		}
+		return true;
 	}
 };
 
@@ -110,17 +78,22 @@ var controller = {
 		if (location) {
 			this.guesses++;
 			var hit = model.fire(location);
-			if (hit && model.shipsSank === model.Ships) {
-				view.displayMessage("You sank all my battleship, in" + " " + "this.guesses" + "guesses");
+			if (hit && model.shipsSank === model.numShips) {
+				view.displayMessage("You sank all my battleships, in" + " " + this.guesses + " " + "guesses");
 			}
 		}
 	}	
 };
+
 function init() {
 	var fireButton = document.getElementById("fireButton");
 	fireButton.onclick = handleFireButton;
 }
 function handleFireButton() {
+	var guessInput = document.getElementById("guessInput");
+	var guess = guessInput.value;
+	controller.processGuess(guess);
 
+	guessInput.value = ""; //reset the form input element
 }
 window.onload = init;

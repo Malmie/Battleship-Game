@@ -1,5 +1,6 @@
 body {
 	background-color: #000;
+	font-family: Arial;
 }
 * {
 	box-sizing: border-box;
@@ -40,9 +41,14 @@ form input {
 }
 #messageArea {
 	position: absolute;
-	bottom: 0;
-	left: 0;
-	color: #fff;
+	top: 0;
+	right: 0;
+	color: #000;
+	background-color: #fff; 
+	padding: 3px;
+	border: solid 15px #6E951E;
+	width: 290px;
+	font-size: 13px;
 }
 .hit {
 	background: url(../img/ship.png) no-repeat center center;
