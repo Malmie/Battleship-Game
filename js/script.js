@@ -72,12 +72,12 @@ var model = {
 			}
 		}
 		view.displayMiss(guess);
-		view.displayMessage("You missed.");
+		view.displayMessage("You've missed.");
 		return false;
 	},
 
 	isSunk: function(ship) {
-		for ( var i=0; i<this.shipLength; i++) {
+		for (var i=0; i<this.shipLength; i++) {
 			if (ship.hits[i] !== "hit") {
 				return false;
 			}
@@ -95,7 +95,7 @@ function parseGuess(guess) {
 		var column = guess.charAt(1);
 		if (isNaN(row) || isNaN(column)) {
 			alert("Incorrect data");
-		} else if (row<0 || row>=model || column<0 || column>=model) {
+		} else if (row<0 || row>=model.boardSize || column<0 || column>=model.boardSize) {
 			alert("That is not within the board")
 		} else {
 			return row+column
@@ -103,4 +103,13 @@ function parseGuess(guess) {
 	}
 	return null;
 }
-console.log(parseGuess("B6"));
+var controller = {
+	guesses: 0,
+	processGuess: function(guess) {;
+		var location = parseGuess(guess);
+		if (location) {
+			this.guesses++;
+			var hit = model.fire(location);
+		}
+	}	
+};
